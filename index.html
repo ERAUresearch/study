@@ -439,6 +439,102 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
     .light-theme .material-symbols-outlined { color: #1e293b; }
     .light-theme img[alt="Cockpit Background"] { opacity: 0.08; filter: grayscale(1); }
 </style>
+
+<style id="theme-variants">
+    /* Question Group 1 (Q1-5) - Blue Theme */
+    .question-group-1 .glass-panel {
+        background: linear-gradient(135deg, rgba(59, 130, 246, 0.05) 0%, rgba(191, 219, 254, 0.1) 100%);
+    }
+    .question-group-1 .glass-panel {
+        --progress-bar-color: #3b82f6;
+        --progress-bar-bg: #dbeafe;
+        border-left: 4px solid #3b82f6;
+    }
+    .question-group-1 .scale-button {
+        background: linear-gradient(135deg, rgba(3, 102, 214, 0.1), rgba(59, 130, 246, 0.15));
+        border: 1px solid rgba(59, 130, 246, 0.3);
+    }
+    .question-group-1 .scale-button:hover {
+        background: linear-gradient(135deg, rgba(3, 102, 214, 0.2), rgba(59, 130, 246, 0.25));
+    }
+    .question-group-1 .scale-button.selected {
+        background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+        color: white;
+        border-color: #3b82f6;
+    }
+
+    /* Question Group 2 (Q6-10) - Purple Theme */
+    .question-group-2 .glass-panel {
+        background: linear-gradient(135deg, rgba(168, 85, 247, 0.05) 0%, rgba(221, 214, 254, 0.1) 100%);
+    }
+    .question-group-2 .glass-panel {
+        --progress-bar-color: #a855f7;
+        --progress-bar-bg: #f3e8ff;
+        border-left: 4px solid #a855f7;
+    }
+    .question-group-2 .scale-button {
+        background: linear-gradient(135deg, rgba(147, 51, 234, 0.1), rgba(168, 85, 247, 0.15));
+        border: 1px solid rgba(168, 85, 247, 0.3);
+    }
+    .question-group-2 .scale-button:hover {
+        background: linear-gradient(135deg, rgba(147, 51, 234, 0.2), rgba(168, 85, 247, 0.25));
+    }
+    .question-group-2 .scale-button.selected {
+        background: linear-gradient(135deg, #a855f7, #7e22ce);
+        color: white;
+        border-color: #a855f7;
+    }
+
+    /* Question Group 3 (Q11-15) - Emerald Theme */
+    .question-group-3 .glass-panel {
+        background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(167, 243, 208, 0.1) 100%);
+    }
+    .question-group-3 .glass-panel {
+        --progress-bar-color: #10b981;
+        --progress-bar-bg: #ccfbf1;
+        border-left: 4px solid #10b981;
+    }
+    .question-group-3 .scale-button {
+        background: linear-gradient(135deg, rgba(5, 150, 105, 0.1), rgba(16, 185, 129, 0.15));
+        border: 1px solid rgba(16, 185, 129, 0.3);
+    }
+    .question-group-3 .scale-button:hover {
+        background: linear-gradient(135deg, rgba(5, 150, 105, 0.2), rgba(16, 185, 129, 0.25));
+    }
+    .question-group-3 .scale-button.selected {
+        background: linear-gradient(135deg, #10b981, #047857);
+        color: white;
+        border-color: #10b981;
+    }
+    /* Slightly larger question text and tighter panel padding for Q1-15 */
+    .question-group-1 .glass-panel,
+    .question-group-2 .glass-panel,
+    .question-group-3 .glass-panel {
+        padding: 1.5rem; /* roughly Tailwind p-6 */
+    }
+    @media (min-width: 768px) {
+        .question-group-1 .glass-panel,
+        .question-group-2 .glass-panel,
+        .question-group-3 .glass-panel {
+            padding: 2rem; /* slightly smaller than original md:p-12 to keep box compact */
+        }
+    }
+    .question-group-1 .glass-panel h3,
+    .question-group-2 .glass-panel h3,
+    .question-group-3 .glass-panel h3 {
+        font-size: 1.375rem; /* ~22px, slightly larger than text-xl */
+        line-height: 1.15; /* tighter line-height */
+        font-weight: 300; /* preserve light feel */
+    }
+    @media (min-width: 768px) {
+        .question-group-1 .glass-panel h3,
+        .question-group-2 .glass-panel h3,
+        .question-group-3 .glass-panel h3 {
+            font-size: 1.6rem; /* ~25.6px for larger screens */
+        }
+    }
+</style>
+
     <!-- Background -->
     <div class="fixed inset-0 z-0">
         <!-- Overlay -->
@@ -448,7 +544,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
     </div>
 
     <!-- Header -->
-    <header class="relative z-20 w-full p-6 border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-md flex justify-between items-center">
+    <header class="relative z-20 w-full px-6 py-2 border-b border-slate-700/50 bg-slate-900/80 backdrop-blur-md flex justify-between items-center">
         <div class="flex items-center gap-3">
             <span class="material-symbols-outlined text-blue-500 text-3xl">flight</span>
             <div>
@@ -465,7 +561,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
     </header>
 
     <!-- Main App Container -->
-    <main class="relative z-20 flex-grow flex flex-col items-center justify-center p-4 w-full max-w-5xl mx-auto min-h-[600px]" id="app"></main>
+    <main class="relative z-20 flex-grow flex flex-col items-center justify-center p-4 mt-1 w-full max-w-5xl mx-auto min-h-[600px]" id="app"></main>
 
     <!-- Footer -->
     <footer class="relative z-20 py-4 text-center text-slate-600 text-xs mono">
@@ -595,6 +691,10 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             optionRevealTimer = setTimeout(() => {
                 grid.classList.remove('choice-delay-hidden');
                 grid.classList.add('choice-delay-visible');
+                // Gentle scroll nudge on first question only
+                if (state.currentQ === 0) {
+                    window.scrollBy({ top: 70, left: 0, behavior: 'smooth' });
+                }
             }, 5000);
         }
 
@@ -610,6 +710,8 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             startRevealTimer = setTimeout(() => {
                 startBtn.classList.remove('start-delay-hidden');
                 startBtn.classList.add('start-delay-visible');
+                // Gentle scroll nudge alongside the reveal
+                window.scrollBy({ top: 40, left: 0, behavior: 'smooth' });
             }, 4000);
         }
 
@@ -647,16 +749,16 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             const container = document.createElement('div');
             container.className = 'flex flex-col items-center text-center max-w-2xl mx-auto';
             container.innerHTML = `
-                <div class="glass-panel p-10 rounded-2xl hud-border w-full">
-                    <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs mono mb-6">CONFIDENTIAL </span>
+                <div class="glass-panel pt-4 px-10 pb-6 rounded-2xl hud-border w-full">
+                    <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs mono mb-2">CONFIDENTIAL </span>
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">Research <br/><span class="text-blue-500">Survey</span></h2>
-                    
-                    <p class="text-slate-300 text-lg mb-8 leading-relaxed">
-                        Please indicate how much you agree or disagree with statements about your experiences as a pilot. 
+
+                    <p class="text-slate-300 text-lg mb-2 leading-tight">
+                        Please indicate how much you agree or disagree with statements about your experiences as a pilot.
                         There are no right or wrong answers.
                     </p>
 
-                    <div class="grid grid-cols-1 gap-4 mb-8 text-left bg-slate-800/50 p-6 rounded-lg border border-slate-700">
+                    <div class="grid grid-cols-1 gap-4 mb-4 text-left bg-slate-800/50 p-6 rounded-lg border border-slate-700">
                         <div class="flex items-start gap-3">
                             <span class="material-symbols-outlined text-blue-400">timer</span>
                             <div>
@@ -666,7 +768,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
                         </div>
                     </div>
 
-                    <button id="start-survey-btn" onclick="startSurvey()" class="group relative px-8 py-4 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all w-full md:w-auto overflow-hidden start-delay start-delay-hidden cta-pulse">
+                    <button id="start-survey-btn" onclick="startSurvey()" class="group relative px-8 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all w-full md:w-auto overflow-hidden start-delay start-delay-hidden cta-pulse">
                         <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                         <span class="relative flex items-center justify-center gap-2">
                             START SURVEY <span class="material-symbols-outlined">arrow_forward</span>
@@ -677,11 +779,18 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             return container;
         }
 
+        function getQuestionGroupTheme(qIndex) {
+            if (qIndex < 5) return 'question-group-1';
+            if (qIndex < 10) return 'question-group-2';
+            return 'question-group-3';
+        }
+
         function createSurvey() {
             const container = document.createElement('div');
-            container.className = 'w-full max-w-4xl';
-            
             const qIndex = state.currentQ;
+            const themeClass = getQuestionGroupTheme(qIndex);
+            container.className = `w-full max-w-4xl ${themeClass}`;
+            
             const totalQuestions = questions.length + getDemoSteps().length;
             const progress = ((qIndex) / totalQuestions) * 100;
 
@@ -750,7 +859,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
                     'ATP - Flight Instructor'
                 ] },
                 { key: 'hours', title: 'Total Flight Hours', description: 'Enter your total logged flight hours (max 5 digits).', type: 'hours' },
-                { key: 'age', title: 'Age Group', description: 'Select your age group.', type: 'options', options: ['18-24', '25-29', '30-34', '35-39', '40-44', '45-49', '50-54', '55-59', '60-64', '65 or older', 'Prefer not to state'] },
+                { key: 'age', title: 'Age Group', description: 'Select your age group.', type: 'options', options: ['18-22', '23-27', '28-32', '33-37', '38-42', '43-47', '48-52', '53-57', '58-64', '65+'], columns: 3 },
                 { key: 'gender', title: 'Gender', description: 'Select your gender.', type: 'options', options: ['Male', 'Female', 'Non-binary', 'Other', 'Prefer not to state'], allowOther: true },
                 { key: 'ethnicity', title: 'Race / Ethnicity', description: 'Select the option that best describes you.', type: 'options', options: [
                     'White',
@@ -777,7 +886,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             const storedOther = state.demoData[`${step.key}_other`] || '';
             const isLast = idx === demoSteps.length - 1;
             const optionsGridClass = step.key === 'age'
-                ? 'grid grid-cols-1 sm:grid-cols-2 gap-3 mt-4'
+                ? 'grid grid-cols-3 gap-3 mt-4'
                 : 'grid grid-cols-1 gap-3 mt-4';
 
             const container = document.createElement('div');
@@ -1182,4 +1291,3 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
 
 
 </body></html>
-
