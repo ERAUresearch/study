@@ -285,6 +285,22 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             border-bottom: 2px solid #2563eb;
             border-right: 2px solid #2563eb;
         }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #2563eb; }
+        }
+        .typewriter-text {
+            display: inline-block;
+            overflow: hidden;
+            border-right: .15em solid #2563eb;
+            white-space: nowrap;
+            animation: typing 2s steps(12, end), blink-caret .75s step-end infinite;
+            vertical-align: bottom; /* Aligns the text properly within the pill */
+        }
         @keyframes glow-pan {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
@@ -565,7 +581,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
 
     <!-- Footer -->
     <footer class="relative z-20 py-4 text-center text-slate-600 text-xs mono">
-        © 2025 Aviation Safety Research Group
+        © 2025 Aviation Research
     </footer>
 
     <script>
@@ -750,7 +766,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
             container.className = 'flex flex-col items-center text-center max-w-2xl mx-auto';
             container.innerHTML = `
                 <div class="glass-panel pt-4 px-10 pb-6 rounded-2xl hud-border w-full">
-                    <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs mono mb-2">CONFIDENTIAL </span>
+                    <span class="inline-block py-1 px-3 rounded-full bg-blue-500/10 border border-blue-500/30 text-blue-400 text-xs mono mb-2"><span class="typewriter-text">CONFIDENTIAL</span></span>
                     <h2 class="text-4xl font-bold text-slate-900 mb-6">Research <br/><span class="text-blue-500">Survey</span></h2>
 
                     <p class="text-slate-300 text-lg mb-2 leading-tight">
@@ -849,7 +865,7 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
 
         function getDemoSteps() {
             return [
-                { key: 'rating', title: 'Current Pilot Certification Status', description: 'Select your highest current certification.', type: 'options', options: [
+                { key: 'rating', title: 'Select Your Highest Current Certification', description: '', type: 'options', options: [
                     'Private Pilot (non-instrument rated)',
                     'Private Pilot (instrument rated)',
                     'Commercial Pilot (non-instrument rated)',
@@ -858,10 +874,10 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
                     'ATP',
                     'ATP - Flight Instructor'
                 ] },
-                { key: 'hours', title: 'Total Flight Hours', description: 'Enter your total logged flight hours (max 5 digits).', type: 'hours' },
-                { key: 'age', title: 'Age Group', description: 'Select your age group.', type: 'options', options: ['18-22', '23-27', '28-32', '33-37', '38-42', '43-47', '48-52', '53-57', '58-64', '65+'], columns: 3 },
-                { key: 'gender', title: 'Gender', description: 'Select your gender.', type: 'options', options: ['Male', 'Female', 'Non-binary', 'Other', 'Prefer not to state'], allowOther: true },
-                { key: 'ethnicity', title: 'Race / Ethnicity', description: 'Select the option that best describes you.', type: 'options', options: [
+                { key: 'hours', title: 'Enter Your Total Logged Flight Hours', description: '', type: 'hours' },
+                { key: 'age', title: 'Select Your Age Group', description: '', type: 'options', options: ['18-22', '23-27', '28-32', '33-37', '38-42', '43-47', '48-52', '53-57', '58-64', '65+'], columns: 3 },
+                { key: 'gender', title: 'Select Your Gender', description: '', type: 'options', options: ['Male', 'Female', 'Non-binary', 'Other', 'Prefer not to state'], allowOther: true },
+                { key: 'ethnicity', title: 'Select The Option That Best Describes Your Race / Ethnicity', description: '', type: 'options', options: [
                     'White',
                     'Black or African American',
                     'Hispanic or Latino',
@@ -993,9 +1009,6 @@ wb);O(IMG_SEARCH_ATTRIBUTION_MAP,Pd);O(IMG_GEN_REPLACE_MAP,fa.A);X();jf();h.A=0}
                     <p class="text-slate-500 text-sm">Thank you for participating.</p>
                 </div>
 
-                <button onclick="location.reload()" class="text-slate-500 hover:text-white text-sm flex items-center justify-center gap-2 mx-auto">
-                    <span class="material-symbols-outlined text-lg">refresh</span> Start New Session
-                </button>
             `;
             return container;
         }
